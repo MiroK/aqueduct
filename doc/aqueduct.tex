@@ -1,0 +1,94 @@
+\documentclass[]{siamltex1213}
+\usepackage{enumerate}
+\usepackage{graphicx, caption, subcaption}
+\usepackage{multirow, array}
+\usepackage{xfrac}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{calc}
+\usepackage{standalone}
+% Blank cites
+\newcommand{\sitewho}{\textcolor{magenta}{$\left[?!?\right]$}}
+\newcommand{\site}[1]{\textcolor{magenta}{$\left[\text{#1}\right]$}}
+% Shortcuts
+\newcommand{\Del}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand*{\Scale}[2][4]{\scalebox{#1}{$#2$}}%
+\newcommand*{\Resize}[2]{\resizebox{#1}{!}{$#2$}}%
+\newcommand{\reals}{\mathbb{R}}
+\newcommand{\naturals}{\mathbb{N}}
+\renewcommand{\div}{\nabla\cdot}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\seq}[1]{\{#1\}}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\newcommand{\semi}[1]{\lvert#1\rvert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\half}{\Scale[0.5]{\tfrac{1}{2}}}
+\newcommand{\nhalf}{\Scale[0.5]{-\tfrac{1}{2}}}
+\renewcommand{\brack}[1]{\langle#1\rangle}
+\newcommand{\inner}[2]{\left(#1, #2\right)}
+\newcommand{\close}[1]{\left[#1\right]}
+\newcommand{\la}[1]{\ensuremath{\mathsf{#1}}}
+\newcommand{\inv}[1]{\ensuremath{{#1}^{\Scale[0.5]{-1}}}}
+\newcommand{\transp}[1]{\ensuremath{{#1}^{\Scale[0.5]{\top}}}}
+\newcommand{\dual}[1]{#1^{\prime}}
+\DeclareMathOperator{\spn}{span}
+% Change inf and sup alignments
+\makeatletter
+\renewcommand{\inf}{\mathop{\@inf\vphantom{\@sup}}}
+\renewcommand{\sup}{\mathop{\@sup\vphantom{\@inf}}}
+\newcommand{\@inf}{\operatorname*{inf}}
+\newcommand{\@sup}{\operatorname*{sup}}
+% New envirnments
+\newtheorem{example}{Example}
+\numberwithin{example}{section}
+\newtheorem{remark}{Remark}
+\numberwithin{remark}{section}
+\newtheorem{conjecture}{Conjecture}
+\numberwithin{conjecture}{section}
+
+\title{Aqueduct notes} 
+
+\author{
+%Miroslav Kuchta \footnotemark[2] \and
+%Kent-Andre Mardal \footnotemark[2] \footnotemark[3] \and
+%Mikael Mortensen \footnotemark[2]
+}
+
+\begin{document}
+% For affils . and addresses
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+%\footnotetext[2]{Department of Mathematics, Division of Mechanics, University of Oslo
+%\texttt{\{mirok, mikaem\}@math.uio.no}
+%}
+%\footnotetext[3]{Center for Biomedical Computing, Simula Research Laboratory, 
+%\texttt{kent-and@simula.no}
+%}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\maketitle
+\slugger{SISC}{xxxx}{xx}{x}{x--x}
+
+\begin{abstract}
+  ...
+\end{abstract}
+
+\begin{keywords}...\end{keywords}
+
+\begin{AMS}...\end{AMS}
+
+\pagestyle{myheadings}
+\thispagestyle{plain}
+\markboth{Notes}{}
+
+%
+\input{lollipop.tex}
+% 
+%\appendix
+%\input{appendix.tex}
+%
+%\bibliographystyle{siam}
+%\bibliography{tdod}
+\end{document}

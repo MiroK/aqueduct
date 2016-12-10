@@ -1,0 +1,64 @@
+\section{Lollipop mesh}
+We shall model the cerebral aqueduct as a spehere of radius $R$ sitting on top
+of a cylinder with radius $r$, $r<R$ and length $l$. A possible approach is to
+construct such a domain by rotating a curve. However, if the curve is taken as a
+union of a circular arc and a straight segment, see Figure \ref{fig:sharp}, the 
+region where the two curves meet has a discontinous gradient. The simple curve
+thus leads to unphysical features and a new idea is needed.
+%
+\begin{figure}[h!]
+\centering
+  \includegraphics[width=\textwidth]{img/sharp.ps}
+\caption{Constructing the domain by rotating pictured curve leads to
+discontinuous (tangential) gradient on the surface.
+}
+\label{fig:sharp}
+\end{figure}
+
+To remove the sharp features we propose to custruct the curve by joining the
+previously suggested circular arc and the straight segment with a new circular
+arc, cf. Figure \ref{fig:smooth}. The additional curve is constructed as
+follows:
+%
+\begin{enumerate}
+  \item Let $q$ such that $r<q<R$ is given. We wish to constuct a circular arc
+    which starts at point $A=(q, \sqrt{R^2-q^2})\in\Gamma_a$ and ends at the
+    straight segment. We define $\mathcal{C}=\set{(x, z); x^2+z^2=R^2}$ and
+    $\mathcal{L}=\set{(x, z); x=r}$.
+  \item Let $C$ be the intersection point of line $\mathcal{L}$ and the tangent of
+    the circle $\mathcal{C}$ at point $C$. Then $d=\semi{C-A}$. Observe from
+    Figure \ref{fig:smooth} that $\alpha=\angle BAC=\alpha$ and
+    $\semi{A-B}=q-r$. The $d$ can be computed from $\cos\alpha=\semi{A-B}/d$.
+    The intersection point itself is then $C=B-(0, h)$, where
+    $h/(q-r)=\tan\alpha$.
+  \item Let $D=C-(0, d)$ and the point shall be where the new arc intersects
+    $\mathcal{L}$. To construct the arc its radius $x$ and center $P$ are needed.
+    Note that $P$ must lie on a perpendicular bisector of $AD$.
+  \item To make $P$ unique we set it as the intersect of the bisector
+    and the line defined by the origin and $A$. The $P=(R+x)(\sin\alpha,-\cos\alpha)$
+  \item It remains to find $x$. Here, we observe that $\angle
+    ACD=\pi-(\pi/2-\alpha)=\pi/2+\alpha$ and define $2\gamma=\angle ACD$.
+    The distance can be computed from the triangle $ACP$ ($CP$ is the hypotenuse)
+    as $x/d=\tan{\gamma}$.
+\end{enumerate}
+\begin{figure}[h!]
+\centering
+  \includegraphics[width=\textwidth]{img/smooth.ps}
+\caption{The curve leading to a smooth domain with continous tangential gradient
+  on a whole surface.}
+  \label{fig:smooth}
+\end{figure}
+
+In the presented algorithm any $q\in(r, R)$ is admissible. An iteresting
+question is whether some meaningful objective functional could be defined such 
+that it would yield an optimal value of $q$. Of course, it might very well be
+that $q$ is a free parameter chosen, e.g. based on the resolution of the mesh; $q$
+close to $r$ results in large curvature in the joint region and small mesh size
+is thus needed to resolve the junction.
+
+We note that the construction was motivated by a similar problem where a
+vertical and horizontal segments are to be joined smoothly. In this case it is
+natural to use a circular arc with $\tfrac{\pi}{4}$ sector to join the segments.
+Our construction has this problem as a special case. However, there might be
+multiple algorithms which collapse to this solution.
+
